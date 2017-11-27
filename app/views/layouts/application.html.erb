@@ -19,12 +19,19 @@
         <% end %>
         <%= link_to "Home", root_url, class: "navbar-text"%>
         <%= link_to "Users", toot_users_url, class: "navbar-text"%>
+        <%= link_to "Timeline", timeline_url, class: "navbar-text"%>
+
+        <% if user_signed_in? %>
+          <%= link_to "Profile", user_path(id: current_user.id), class: "navbar-text"%>
+        <% end %>
       </div>
     </nav>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

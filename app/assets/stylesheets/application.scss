@@ -17,3 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.thumbnail-container {
+  width: 200px;
+  height: 350px;
+  float: left;
+}
