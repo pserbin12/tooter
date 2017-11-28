@@ -20,6 +20,46 @@
 
 .thumbnail-container {
   width: 200px;
-  height: 350px;
+  height: 300px;
   float: left;
+  overflow: scroll;
+}
+
+.thumbnail img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.bio-column {
+  width: 30%;
+  padding-right: 20px;
+  float: left;
+  overflow: hidden;
+}
+
+.toot-column {
+  overflow: scroll;
+  height: 600px;
+}
+
+.date-in-words {
+  float: right;
+  color: #909497;
+}
+
+.toot-form {
+  border-style: solid;
+  border-width: thin;
+  padding: 20px;
+}
+
+.toot {
+  margin: 10px;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+}
+.toot p {
+  padding: 20px;
 }

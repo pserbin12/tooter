@@ -1,26 +1,33 @@
 <h1>@<%= @user.username  %></h1>
 
-<% unless @user == current_user %>
-  <% if current_user.following.include?(@user.id.to_s) %>
-    <%= link_to "Unfollow", unfollow_user_url(id: @user.id), class: "btn btn-danger" %>
+<div class="bio-column">
+  <% if @user.avatar.url %>
+    <%= image_tag @user.avatar.url, width: 200 %>
   <% else %>
-    <%= link_to "Follow", follow_user_url(id: @user.id), class: "btn btn-primary" %>
+    <%= image_tag 'user-profile-icon.jpg', width: 200 %>
   <% end %>
-<% end %>
 
-<% if @user.avatar.url %>
-  <%= image_tag @user.avatar.url, width: 200 %>
-<% else %>
-  <%= image_tag 'user-profile-icon.jpg', width: 200 %>
-<% end %>
+  <p><%= @user.name %></p>
+  <p><%= @user.city %>, <%= @user.state %></p>
+  <p><%= @user.email %></p>
+  <p><%= @user.bio %></p>
 
-<p><%= @user.name %></p>
-<p><%= @user.city %>, <%= @user.state %></p>
-<p><%= @user.email %></p>
-<p><%= @user.bio %></p>
+  <br>
+</div>
 
-<br>
+<div class="toot-column">
 
-<% @user.toots.each do |toot| %>
-  <%= render 'shared/toot', toot: toot %>
-<% end %>
+  <% if @user == current_user %>
+    <%= render 'new_toot', toot: @toot %>
+  <% else %>
+    <% if current_user.following.include?(@user.id.to_s) %>
+      <%= link_to "Unfollow", unfollow_user_url(id: @user.id), class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Follow", follow_user_url(id: @user.id), class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+
+  <% @user.toots.each do |toot| %>
+    <%= render 'shared/toot', toot: toot %>
+  <% end %>
+</div>

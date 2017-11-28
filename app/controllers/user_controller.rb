@@ -7,6 +7,7 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @toot = Toot.new
   end
 
   def follow
