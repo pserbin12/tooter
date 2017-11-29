@@ -19,7 +19,7 @@ User.destroy_all
   password_confirmation: '123456'
 )
 
-@user.avatar = Rails.root.join("app/assets/images/profile-pic.jpg").open
+#@user.avatar = Rails.root.join("app/assets/images/profile-pic.jpg").open
 
 10.times do
   @user.toots.create(
@@ -49,7 +49,7 @@ puts "Generating Users"
     password_confirmation: password
   )
 
-  u.avatar = Rails.root.join("app/assets/images/stock-profile-#{i + 1}.jpeg").open
+  #u.avatar = Rails.root.join("app/assets/images/stock-profile-#{i + 1}.jpeg").open
 
   10.times do
     u.toots.create(
