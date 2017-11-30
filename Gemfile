@@ -68,4 +68,5 @@ group :production do
   gem 'aws-sdk', '~> 2.3'
   gem 'figaro'
   gem 'fog'
+  gem 'fog-aws'
 end
