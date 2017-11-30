@@ -11,6 +11,12 @@ def create
   redirect_to user_path(id: current_user.id)
 end
 
+def delete
+  @toot = Toot.find(params[:id])
+  @toot.destroy!
+
+  redirect_to timeline_path
+
   def timeline
     ids = current_user.following
     ids.push(current_user.id.to_s)

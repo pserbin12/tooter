@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
 <div class="thumbnail-container">
   <div class="thumbnail">
-    <%= image_tag user.avatar.url if user.avatar %>
+    <%= image_tag user.avatar.url unless user.avatar.url == nil %>
     <div class="caption">
       <%= link_to "@#{user.username}", user_url(user) %>
       <p>

@@ -3,4 +3,7 @@
   @<%= toot.user.username %>
   <span class="date-in-words"><%= time_ago_in_words(toot.created_at) %> ago</span>
   <p><%= toot.message %></p>
+  <% if current_user == toot.user %>
+    <%= link_to "Delete", delete_toot_path(id: toot.id), method: :delete, class: "btn btn-danger" %>
+  <% end %>
 </div>

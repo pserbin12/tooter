@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root "toot#index"
   get "/timeline", to: "toot#timeline", as: :timeline
+  delete "/toot/delete/:id", to: "toot#delete", as: :delete_toot
 
   get "/users", to: "user#index", as: :toot_users
   get "/users/:id", to: "user#show", as: :user
